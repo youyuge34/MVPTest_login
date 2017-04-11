@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.yousheng.mvptest_login.Presenter.IUserPresenter;
 import com.example.yousheng.mvptest_login.Presenter.UserPresenter;
 import com.example.yousheng.mvptest_login.R;
 
@@ -28,14 +29,14 @@ public class UserActivity extends AppCompatActivity implements IUserView {
     @BindView(R.id.load_info_button)
     Button buttonLoad;
 
-    UserPresenter presenter;
+    IUserPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         ButterKnife.bind(this);
-        //获取p层实例，并且传入此v层,为了调用p层里的业务逻辑实现的方法
+        //获取p层的接口实例，并且传入此v层,为了调用p层里的实现业务逻辑的方法
         presenter=new UserPresenter(this);
     }
 

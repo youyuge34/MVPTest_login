@@ -16,11 +16,11 @@ import com.example.yousheng.mvptest_login.View.IUserView;
  * Presenter就能通过接口与View及Model进行交互了：
  * 主要就是save和load两个方法的具体逻辑，在两个方法中调用m和v层的接口中规定好的方法
  */
-public class UserPresenter {
+public class UserPresenter implements IUserPresenter{
     private IUserView userView;
     private IUserModel userModel;
 
-    //将带有具体方法实现的接口实例upcast成为接口
+    //将带有具体方法实现的实例upcast成为接口
     public UserPresenter(IUserView userView) {
         this.userView = userView;
         userModel=new UserModel();
